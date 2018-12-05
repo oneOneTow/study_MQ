@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:amq.properties"/>
+
+    <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${activeMQ.borkerUrl}"/>
+        <property name="userName" value="${activeMQ.user}"/>
+        <property name="password" value="${activeMQ.password}"/>
+    </bean>
+
+    <bean id="poolConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+        <property name="connectionFactory" ref="targetConnectionFactory"/>
+        <property name="maxConnections" value="${activeMQ.pool.maxConnections}"/>
+    </bean>
+
+    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <property name="targetConnectionFactory" ref="poolConnectionFactory"/>
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestinationName" value="${activeMQ.queueName}"/>
+    </bean>
+</beans>
