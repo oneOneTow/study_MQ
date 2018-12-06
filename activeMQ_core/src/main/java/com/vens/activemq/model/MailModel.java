@@ -1,4 +1,4 @@
-package com.vens.model;
+package com.vens.activemq.model;
 
 /**
  * @author LuZhiqing

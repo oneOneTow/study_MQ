@@ -1,6 +1,7 @@
 package com.vens.producer;
 
-import com.vens.model.MessageModel;
+
+import com.vens.activemq.model.MessageModel;
 
 import javax.jms.Message;
 

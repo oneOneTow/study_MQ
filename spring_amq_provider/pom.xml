@@ -11,5 +11,8 @@
 
     <artifactId>spring_amq_provider</artifactId>
 
+    <dependencies>
+
+    </dependencies>
 
 </project>
