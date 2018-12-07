@@ -52,4 +52,14 @@ public class MailModel extends MessageModel {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "MailModel{" +
+                "from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                ", subject='" + subject + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }

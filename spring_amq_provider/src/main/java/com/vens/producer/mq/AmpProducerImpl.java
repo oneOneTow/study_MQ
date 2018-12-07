@@ -1,10 +1,11 @@
-package com.vens.producer;
+package com.vens.producer.mq;
 
 import com.alibaba.fastjson.JSON;
 import com.vens.activemq.model.MessageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Service;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -15,7 +16,8 @@ import javax.jms.Session;
  * @Description:
  * @date 2018/12/5
  */
-public abstract class AbstractAmpProducer implements Producer{
+@Service
+public  class AmpProducerImpl implements Producer{
     @Autowired
     private JmsTemplate jmsTemplate;
     public Message produceMessage() {

@@ -1,4 +1,4 @@
-package com.vens.consumer;
+package com.vens.consumer.mq;
 
 import com.vens.activemq.model.MessageModel;
 

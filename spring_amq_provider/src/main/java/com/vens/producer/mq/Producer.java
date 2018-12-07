@@ -1,4 +1,4 @@
-package com.vens.producer;
+package com.vens.producer.mq;
 
 
 import com.vens.activemq.model.MessageModel;

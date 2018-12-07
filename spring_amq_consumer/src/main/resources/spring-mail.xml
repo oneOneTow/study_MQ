@@ -5,17 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:mail.properties"/>
+    <context:property-placeholder location="classpath:mail.properties" ignore-unresolvable="true"/>
     <bean id="threadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
         <property name="corePoolSize" value="5"/>
         <property name="keepAliveSeconds" value="3000"/>
         <property name="maxPoolSize" value="50"/>
         <property name="queueCapacity" value="100"/>
     </bean>
-    <bean id="mailPorperties" class="java.util.Properties">
-
-    </bean>
-    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <bean id="mailSender" class="com.vens.consumer.helper.MailSender">
         <property name="host" value="${mail.host}"/>
         <property name="port" value="${mail.port}"/>
         <property name="username" value="${mail.username}"/>
@@ -28,4 +25,6 @@
             </value>
         </property>
     </bean>
+
+
 </beans>
