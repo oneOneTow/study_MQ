@@ -28,5 +28,7 @@ public class MailMessageQueueListener implements SessionAwareMessageListener {
             return ;
         }
         mailServiceImpl.mailSend(mailModel);
+        //ÊÖ¶¯Ó¦´ð
+        msg.acknowledge();
     }
 }

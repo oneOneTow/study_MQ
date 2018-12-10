@@ -32,5 +32,6 @@
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destination" ref="mailQueue"/>
         <property name="messageListener" ref="mailListener"/>
+        <property name="sessionAcknowledgeMode" value="2"/>
     </bean>
 </beans>

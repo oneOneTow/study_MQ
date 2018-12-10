@@ -20,7 +20,6 @@ public class ProducerApp {
                     "amq_test",
                     "hello world "+i));
         }
-
         System.out.println("producer start");
     }
 }

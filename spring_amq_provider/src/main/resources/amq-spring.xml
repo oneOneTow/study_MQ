@@ -22,8 +22,13 @@
         <property name="targetConnectionFactory" ref="poolConnectionFactory"/>
     </bean>
 
+    <bean id="sessionAcknowledgeMode" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <property name="staticField" value="javax.jms.Session.CLIENT_ACKNOWLEDGE"/>
+    </bean>
+
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="defaultDestinationName" value="${activeMQ.queueName}"/>
+        <property name="sessionAcknowledgeMode" value="2"/>
     </bean>
 </beans>
